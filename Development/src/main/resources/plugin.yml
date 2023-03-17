@@ -1,0 +1,18 @@
+name: EconomyPlus
+version: '${project.version}'
+main: me.jartype.EconomyPlus.EconomyPlusMain
+api-version: 1.19
+authors: [ JarType, T0m1keu ]
+description: EconomyPlus with custom currency and shop!
+commands:
+  sb:
+    description: open scoreboard
+
+  crystals:
+    description: open a crystal shop!
+
+  stats:
+    description: you can upgrade your stats here.
+
+  crystal:
+    description: show how many crystals do you have.

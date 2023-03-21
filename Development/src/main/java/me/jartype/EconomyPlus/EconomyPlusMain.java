@@ -1,13 +1,11 @@
 package me.jartype.EconomyPlus;
 
-import me.jartype.EconomyPlus.commands.CurrencyCommand;
-import me.jartype.EconomyPlus.commands.statsCommand;
+import me.jartype.EconomyPlus.commands.*;
 import me.jartype.EconomyPlus.events.ClickEvent;
 import me.jartype.EconomyPlus.events.CrystalClick;
 import me.jartype.EconomyPlus.listeners.JoinLeaveMessages;
 import me.jartype.EconomyPlus.listeners.MobKills;
 import me.jartype.EconomyPlus.managers.CurrencyManager;
-import me.jartype.EconomyPlus.commands.GUICommand;
 
 import me.jartype.EconomyPlus.utils.Scoreboard;
 import org.bukkit.configuration.ConfigurationSection;
@@ -28,6 +26,16 @@ public final class EconomyPlusMain extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
         new Scoreboard(this);
+
+        try {
+            File file = new File(getDataFolder(), "config.yml");
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
         try {
             File file = new File(getDataFolder(), "data.yml");
@@ -59,6 +67,10 @@ public final class EconomyPlusMain extends JavaPlugin implements Listener {
         getCommand("crystals").setExecutor(new GUICommand());
         getServer().getPluginManager().registerEvents(new ClickEvent(this), this);
         getCommand("stats").setExecutor(new statsCommand());
+
+        //config.yml
+        getConfig().options().copyDefaults();
+        saveDefaultConfig();
 
         // Načtení konfigurace
         this.config = getConfig();
@@ -142,7 +154,12 @@ public final class EconomyPlusMain extends JavaPlugin implements Listener {
     }
 
     public void registerCommands() {
+        new Message(this);
         new CurrencyCommand(this);
+        new SetWarpCommand(this);
+        new WarpCommand(this);
+        new DelWarpCommand(this);
+        new FlyCommand(this);
     }
 
     public void registerListeners() {

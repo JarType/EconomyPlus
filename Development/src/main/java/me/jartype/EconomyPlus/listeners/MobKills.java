@@ -28,7 +28,7 @@ public class MobKills implements Listener {
                 // check if drop should occur
                 Random rand = new Random();
                 int dropChance = rand.nextInt(100);
-                if (dropChance < 10) { // 10% chance to drop
+                if (dropChance < 5) { // 10% chance to drop
                     player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6&lRARE DROP &f&l-> &d&lCrystal &b&l(5%)"));
 
                     // Create a new ItemStack representing one Nether Quartz
@@ -45,9 +45,9 @@ public class MobKills implements Listener {
 
                         // Set the item's lore
                         meta.setLore(Arrays.asList(
-                                ChatColor.translateAlternateColorCodes('&', "&f&lDrop from Endermans &b&l(5%)"),
-
-
+                                ChatColor.translateAlternateColorCodes('&', "&f&Drop from Endermans &b&l(5%)"),
+                                "",
+                                "",
                                 ChatColor.translateAlternateColorCodes('&', "&7You can use this in /crystals"),
                                 ChatColor.translateAlternateColorCodes('&', "&7Right click to redeem it")
                         ));

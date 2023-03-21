@@ -38,7 +38,7 @@ public class Scoreboard implements Listener {
                         "&b&lOnline:",
                         "&f&l" + Bukkit.getOnlinePlayers().size(),
                         "",
-                        "&d&lCrystal's:",
+                        "&d&lCrystals:",
                         "&f&l" + manager.getPlayerCurrency(Bukkit.getPlayer(playerId)));
             }
         }, 0L, 10L);

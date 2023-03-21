@@ -20,23 +20,31 @@ public class CrystalClick implements Listener {
     public void onPlayerInteract(PlayerInteractEvent event) {
         Player player = event.getPlayer();
         ItemStack item = event.getItem();
-        CurrencyManager manager = new CurrencyManager(plugin);
-        int amountClicked = event.getItem().getAmount();
+        if(item == null) {
+            event.setCancelled(true);
 
-        if (item != null && item.hasItemMeta()) {
-            ItemMeta meta = item.getItemMeta();
-            if (meta.hasDisplayName() && meta.getDisplayName().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&', "&d&lCrystal"))) {
-                // The item has the correct display name
-                // Add your code here
-                manager.addCurrencyToPlayer(player, amountClicked);
-                player.getInventory().removeItem(item);
 
-                if (amountClicked == 1) {
-                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&a&lYou redeemed "+"&f&l" + amountClicked + " &d&lCrystal"));
-                } else {
-                    player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&a&lYou redeemed "+"&f&l" + amountClicked + " &d&lCrystal's"));
+
+        } else {
+
+            CurrencyManager manager = new CurrencyManager(plugin);
+            int amountClicked = event.getItem().getAmount();
+
+            if (item != null && item.hasItemMeta()) {
+                ItemMeta meta = item.getItemMeta();
+                if (meta.hasDisplayName() && meta.getDisplayName().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&', "&d&lCrystal"))) {
+                    // The item has the correct display name
+                    // Add your code here
+                    manager.addCurrencyToPlayer(player, amountClicked);
+                    player.getInventory().removeItem(item);
+
+                    if (amountClicked == 1) {
+                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&a&lYou redeemed " + "&f&l" + amountClicked + " &d&lCrystal"));
+                    } else {
+                        player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&a&lYou redeemed " + "&f&l" + amountClicked + " &d&lCrystal's"));
+                    }
+
                 }
-
             }
         }
     }};

@@ -1,0 +1,13 @@
+Inventory reason = Bukkit.createInventory(p, InventoryType.ANVIL, "enter reason");
+          ItemStack paper = new ItemStack(Material.PAPER);
+          ItemMeta paperMeta = paper.getItemMeta();
+
+          paperMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&fNo reason provided"));
+          paper.setItemMeta(paperMeta);
+
+          reason.addItem(paper);
+
+          p.openInventory(reason);
+
+
+

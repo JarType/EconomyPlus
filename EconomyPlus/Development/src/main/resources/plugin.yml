@@ -1,0 +1,33 @@
+name: EconomyPlus
+version: '${project.version}'
+main: me.jartype.EconomyPlus.EconomyPlusMain
+api-version: 1.19
+authors: [ JarType, T0m1keu ]
+description: EconomyPlus with custom currency, shop and other nice features!
+commands:
+  sb:
+    description: open scoreboard
+
+  crystals:
+    description: open a crystal shop!
+
+  stats:
+    description: you can upgrade your stats here.
+
+  crystal:
+    description: show how many crystals do you have.
+  m:
+    description: message a player.
+  setwarp:
+    description: set a warp on your location.
+  warp:
+    description: warp to a location.
+  delwarp:
+    description: delete a warp.
+  fly:
+    description: fly.
+  admingui:
+    description: opens admin gui where u can manage members.
+  config:
+    description:
+
